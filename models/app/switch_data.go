@@ -37,7 +37,7 @@ func SelectSwitchData(limit int, page int, createBy string, roleStr string, titl
 		db.Where("create_by = ?",  createBy)
 	}
 	if title != "" {
-		db = db.Where("create_by = ?  and  title like ?", createBy, "%"+title+"%")
+		db = db.Where("title like ?","%"+title+"%")
 	}
 	paginator, err = base.Paging(db, limit, page, &switchData)
 	return
